@@ -10,4 +10,8 @@ drop.get("hi") { req in
     return "Hi World!"
 }
 
+drop.get("hi", String.self) { req, name in
+    return "Hi \(name)"
+}
+
 drop.run()
