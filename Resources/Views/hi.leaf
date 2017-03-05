@@ -1,0 +1,11 @@
+#extend("base")
+
+#export("head") {
+        <title>Hi #(name)</title>
+}
+
+#export("body") {
+    <h1>Hi #(name)</h1>
+
+    <p>Welcome to Vapor!</p>
+}

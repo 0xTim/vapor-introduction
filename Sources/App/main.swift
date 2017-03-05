@@ -11,7 +11,7 @@ drop.get("hi") { req in
 }
 
 drop.get("hi", String.self) { req, name in
-    return "Hi \(name)"
+    return try drop.view.make("hi", ["name": name.makeNode()])
 }
 
 drop.post("hi") { request in
