@@ -28,7 +28,7 @@ drop.post("hi") { request in
     guard let name = request.data["name"]?.string else {
         throw Abort.badRequest
     }
-    
+
     return "Hi \(name)"
 }
 
@@ -36,12 +36,12 @@ drop.post("users") { request in
     guard let name = request.data["name"]?.string, let password = request.data["password"]?.string else {
         throw Abort.badRequest
     }
-    
-    
+
+
     let credentials = NamePassword(name: name, password: password)
     var newUser = try MyUser(credentials: credentials)
     try newUser.save()
-    
+
     return try newUser.makeJSON()
 }
 
@@ -57,14 +57,13 @@ drop.post("login") { request in
     guard let name = request.data["name"]?.string, let password = request.data["password"]?.string else {
         throw Abort.badRequest
     }
-    
+
     let credentials = NamePassword(name: name, password: password)
-    
+
     do {
         try request.auth.login(credentials)
-        
+
         guard let _ = try request.auth.user() as? MyUser else {
-            request.storage.removeValue(forKey: "remember_me")
             throw Abort.badRequest
         }
         return Response(redirect: "/protected")
@@ -81,7 +80,7 @@ drop.grouped(protected).get("protected") { request in
     guard let user = try request.auth.user() as? MyUser else {
         throw Abort.custom(status: .forbidden, message: "You must be logged in")
     }
-    
+
     return "Hello \(user.name)"
 }
 
