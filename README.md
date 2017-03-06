@@ -4,13 +4,13 @@ An example application for my Introduction to Vapor talk. Contains a number a co
 
 The different examples and tags are:
 
-* helloWorld
-* addRoute
-* typeSafeParams
-* postRoute
-* leaf
-* database
-* authentication
+* `helloWorld`
+* `addRoute`
+* `typeSafeParams`
+* `postRoute`
+* `leaf`
+* `database`
+* `authentication`
 
 # Running the application
 
