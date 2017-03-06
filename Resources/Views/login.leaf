@@ -1,0 +1,20 @@
+#extend("base")
+
+#export("head") {
+        <title>Login</title>
+}
+
+#export("body") {
+    <form action="/login/" method="post">
+        <div>
+            <label for="name">Username</label>
+            <input type="text" id="name" name="name" placeholder="Username" autofocus required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+}
